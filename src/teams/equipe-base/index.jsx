@@ -3,6 +3,16 @@ import VideoReferencia from '../../components/VideoReferencia.jsx'
 import meta from './meta.js'
 import membros from './membros.js'
 
+// Funcionalidades do PetCare, resumidas do relatório do sistema (capítulo 2).
+const FUNCIONALIDADES = [
+  ['Agendamento sem conflito', 'O tutor escolhe serviço, data e horário numa grade que mostra só os horários livres. Dois tutores no mesmo horário: só o primeiro é aceito.'],
+  ['Cadastro de pets', 'O tutor cadastra, edita e remove os próprios pets, e a remoção pede o nome do animal para evitar engano.'],
+  ['Agenda do dia', 'A atendente vê os atendimentos do dia, busca por pet, tutor ou CPF, confirma, conclui e cancela com motivo.'],
+  ['Login por perfil', 'Tutor, atendente e administrador entram pela mesma tela, e cada um cai na sua área. Cinco senhas erradas bloqueiam a conta por 15 minutos.'],
+]
+
+const TECNOLOGIAS = ['Angular 22', 'Bootstrap 5', 'Node.js + Express', 'MySQL 8', 'JWT', 'Vercel', 'Render', 'Aiven']
+
 const ENTREGAS = [
   ['Repositório e template', 'Projeto React + Vite no GitHub, com react-router-dom e a estrutura de pastas combinada.'],
   ['Home, menu e rodapé', 'Vitrine com um card por equipe, navegação no topo (com menu no celular) e rodapé compartilhado.'],
@@ -24,29 +34,49 @@ export default function PaginaEquipeBase() {
     <article className="secao" style={{ paddingTop: 0 }}>
       <h1>{meta.nome}</h1>
       <p className="secao__intro">
-        Fomos a equipe sorteada para o papel de <strong>Equipe Base & Integração</strong>: a fundação
-        técnica do portfólio. Nosso trabalho é fazer as páginas das outras equipes chegarem juntas, sem
-        quebrar o build, a um link público.
+        Somos a equipe do <strong>PetCare</strong> e fomos sorteados para o papel de{' '}
+        <strong>Equipe Base & Integração</strong> do portfólio: montamos a fundação técnica do site e
+        integramos as páginas das outras equipes até o link público.
       </p>
 
       <h2>Vídeo</h2>
       <VideoReferencia
-        titulo="Vite in 100 Seconds"
-        url="https://www.youtube.com/watch?v=KCrXgy8qtjM"
+        titulo="PetCare Project - T242-26"
+        url="https://www.youtube.com/watch?v=AYvsXYkjJBs"
         referencia={
           <>
-            "Vite in 100 Seconds", do canal Fireship no YouTube. Escolhemos porque explica, em 100
-            segundos, a ferramenta que sustenta o portfólio: é o Vite que roda o <code>npm run dev</code>{' '}
-            e gera o build que a Vercel publica.
+            "PetCare Project - T242-26", apresentação do nosso sistema gravada pela equipe e publicada
+            por Thalys Silva no YouTube. O tema é o PetCare, o trabalho final da disciplina: cada
+            integrante explica a parte que fez, com a demonstração do sistema publicado.
           </>
         }
       />
 
-      <h2>Sobre a página e o projeto</h2>
+      <h2>Sobre o projeto: PetCare</h2>
       <p>
-        Esta página apresenta a equipe que montou a base do portfólio e o que essa base entrega para
-        a turma inteira:
+        O PetCare é um sistema web para petshop gerenciar clientes, pets e o agendamento de banho,
+        tosa e consulta veterinária. Ele substitui a agenda de papel ou planilha e resolve três
+        problemas do dia a dia: horários marcados em dobro, histórico do animal que se perde e tutor
+        que só consegue agendar por telefone no horário comercial.
       </p>
+      <div className="grade-simples">
+        {FUNCIONALIDADES.map(([titulo, texto]) => (
+          <section key={titulo} className="caixa">
+            <h3>{titulo}</h3>
+            <p>{texto}</p>
+          </section>
+        ))}
+      </div>
+      <p>
+        <strong>Tecnologias:</strong> {TECNOLOGIAS.join(', ')}. O sistema está no ar em{' '}
+        <a href="https://petcare-unifor.vercel.app" target="_blank" rel="noreferrer">
+          petcare-unifor.vercel.app
+        </a>
+        .
+      </p>
+
+      <h2>Nosso papel no portfólio</h2>
+      <p>Como Equipe Base, entregamos para a turma inteira:</p>
       <div className="grade-simples">
         {ENTREGAS.map(([titulo, texto]) => (
           <section key={titulo} className="caixa">
@@ -56,14 +86,7 @@ export default function PaginaEquipeBase() {
         ))}
       </div>
 
-      <h3>Como a IA foi usada</h3>
-      <p>
-        Usamos IA para gerar o esqueleto do projeto, propor a arquitetura de registro automático das
-        equipes, escrever o CSS e revisar o código antes do merge. Toda sugestão passou pelo build,
-        pelo lint e pelos testes antes de entrar na main, e a equipe sabe explicar cada parte.
-      </p>
-
-      <h2>Como uma página chega ao site</h2>
+      <h3>Como uma página chega ao site</h3>
       <ol className="caminho">
         {CAMINHO.map(([titulo, texto]) => (
           <li key={titulo}>
@@ -73,15 +96,19 @@ export default function PaginaEquipeBase() {
         ))}
       </ol>
 
+      <h3>Como a IA foi usada</h3>
+      <p>
+        No portfólio, usamos IA para gerar o esqueleto do projeto, propor a arquitetura de registro
+        automático das equipes, escrever o CSS e revisar o código antes do merge. Toda sugestão passou
+        pelo build, pelo lint e pelos testes antes de entrar na main, e a equipe sabe explicar cada
+        parte.
+      </p>
+
       <h2>A equipe</h2>
       <p>
-        Somos seis integrantes e já trabalhamos juntos no PetCare, o sistema de gestão de petshop
-        (clientes, pets e agendamentos) do trabalho final da disciplina, publicado em{' '}
-        <a href="https://petcare-unifor.vercel.app" target="_blank" rel="noreferrer">
-          petcare-unifor.vercel.app
-        </a>
-        . A dinâmica é a mesma: cada um cuida de uma camada (front-end, back-end, banco, segurança,
-        usabilidade e apresentação), e tudo entra no código por Pull Request revisado.
+        Somos seis integrantes, os mesmos do PetCare. A dinâmica é a mesma do trabalho final: cada um
+        cuida de uma camada (front-end, back-end, banco, segurança, usabilidade e apresentação), e tudo
+        entra no código por Pull Request revisado.
       </p>
 
       <h2>Ficha técnica</h2>
