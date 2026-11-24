@@ -1,0 +1,45 @@
+.rodape {
+  background: var(--azul-escuro);
+  color: #c9d6ee;
+  margin-top: 4rem;
+}
+
+.rodape__grade {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+.rodape strong {
+  color: #fff;
+}
+
+.rodape p {
+  margin: 0.4rem 0 0;
+}
+
+.rodape nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.rodape a {
+  color: #9cc3ff;
+}
+
+.rodape__credito {
+  grid-column: 1 / -1;
+  border-top: 1px solid rgb(255 255 255 / 0.12);
+  padding-top: 1rem;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+  .rodape__grade {
+    grid-template-columns: 1fr;
+  }
+}
