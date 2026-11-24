@@ -15,8 +15,20 @@ export default function PaginaEquipeBase() {
     <article className="secao" style={{ paddingTop: 0 }}>
       <h1>{meta.nome}</h1>
       <p className="secao__intro">
-        Fomos a equipe sorteada para a fundação técnica do portfólio. Nosso trabalho é fazer as
-        páginas das outras equipes chegarem juntas, sem quebrar o build, a um link público.
+        Fomos a equipe sorteada para o papel de <strong>Equipe Base & Integração</strong>: a fundação
+        técnica do portfólio. Nosso trabalho é fazer as páginas das outras equipes chegarem juntas, sem
+        quebrar o build, a um link público.
+      </p>
+
+      <h2>Quem somos</h2>
+      <p>
+        Somos seis integrantes e já trabalhamos juntos no PetCare, o sistema de gestão de petshop
+        (clientes, pets e agendamentos) do trabalho final da disciplina, publicado em{' '}
+        <a href="https://petcare-unifor.vercel.app" target="_blank" rel="noreferrer">
+          petcare-unifor.vercel.app
+        </a>
+        . A dinâmica é a mesma: cada um cuida de uma camada (front-end, back-end, banco, segurança,
+        usabilidade e apresentação), e tudo entra no código por Pull Request revisado.
       </p>
 
       <h2>O que a Equipe Base entregou</h2>

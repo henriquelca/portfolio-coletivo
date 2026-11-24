@@ -42,7 +42,7 @@ describe('montarEquipes', () => {
 
 describe('registro real', () => {
   it('tem a Equipe Base e esconde o modelo', () => {
-    expect(buscarEquipe('equipe-base')?.nome).toBe('Equipe Base & Integração')
+    expect(buscarEquipe('equipe-base')?.rota).toBe('/equipes/equipe-base')
     expect(equipes.some((e) => e.slug === '_modelo')).toBe(false)
   })
 })
