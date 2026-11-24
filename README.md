@@ -4,7 +4,9 @@ Desafio Integrador: um site só, em **React + Vite**, com uma página por equipe
 
 ## Para as equipes de conteúdo (passo a passo)
 
-Precisa de **Node 22** (ou mais novo) e de acesso de colaborador ao repositório (a Equipe Base libera).
+Precisa de **Node 22** (ou mais novo).
+
+**Ainda sem convite de colaborador?** Não precisa esperar: clique em **Fork** no topo desta página do GitHub e clone o **seu** fork (`git clone https://github.com/<seu-usuario>/portfolio-coletivo.git`). O resto é igual. No passo 5, o `git push` vai para o seu fork, e o GitHub mostra o botão **Compare & pull request** para abrir o PR para `pinheiro-code/portfolio-coletivo`, branch `main`.
 
 1. Clone e crie a branch da sua equipe (minúsculas, número com 2 dígitos):
    ```bash
