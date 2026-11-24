@@ -28,8 +28,10 @@ export function paraEmbed(url) {
   if (host === 'player.vimeo.com') return url
 
   if (host === 'vimeo.com') {
-    const id = endereco.pathname.match(/^\/(\d+)/)?.[1]
-    return id ? `https://player.vimeo.com/video/${id}` : null
+    // Vídeo "não listado" tem um hash depois do id (vimeo.com/123/abc1); sem ele o player recusa.
+    const [, id, hash] = endereco.pathname.match(/^\/(\d+)(?:\/([0-9a-f]+))?/) ?? []
+    if (!id) return null
+    return `https://player.vimeo.com/video/${id}${hash ? `?h=${hash}` : ''}`
   }
 
   return null

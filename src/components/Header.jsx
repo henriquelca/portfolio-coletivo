@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { equipes } from '../data/teamsConfig.js'
+import { equipesDeConteudo } from '../data/teamsConfig.js'
 import './Header.css'
 
 export default function Header() {
@@ -8,10 +8,13 @@ export default function Header() {
   // Guarda em que página o menu do celular foi aberto: mudou de página, ele fecha sozinho.
   const [abertoEm, setAbertoEm] = useState(null)
   const aberto = abertoEm === pathname
-  const setAberto = (alternar) => setAbertoEm(alternar(aberto) ? pathname : null)
+  const fechar = () => setAbertoEm(null)
 
   return (
     <header className="topo">
+      <a href="#conteudo" className="pular">
+        Pular para o conteúdo
+      </a>
       <div className="topo__barra">
         <Link to="/" className="topo__marca">
           <span className="topo__selo" aria-hidden="true">PC</span>
@@ -23,24 +26,31 @@ export default function Header() {
           className="topo__menu-botao"
           aria-expanded={aberto}
           aria-controls="menu-principal"
-          onClick={() => setAberto((valor) => !valor)}
+          onClick={() => setAbertoEm(aberto ? null : pathname)}
         >
           {aberto ? 'Fechar' : 'Menu'}
         </button>
 
         <nav
           id="menu-principal"
+          aria-label="Principal"
           className={`topo__nav ${aberto ? 'topo__nav--aberto' : ''}`}
-          onClick={() => setAbertoEm(null)}
         >
-          <NavLink to="/" end>
+          <NavLink to="/" end onClick={fechar}>
             Início
           </NavLink>
-          <NavLink to="/equipes" end>
-            Equipes <span className="topo__contador">{equipes.length}</span>
+          <NavLink to="/equipes" end onClick={fechar}>
+            Equipes{' '}
+            <span className="topo__contador" aria-label={`${equipesDeConteudo.length} equipes de conteúdo`}>
+              {equipesDeConteudo.length}
+            </span>
           </NavLink>
-          <NavLink to="/desafio">O desafio</NavLink>
-          <NavLink to="/equipes/equipe-base">Equipe Base</NavLink>
+          <NavLink to="/desafio" onClick={fechar}>
+            O desafio
+          </NavLink>
+          <NavLink to="/equipes/equipe-base" onClick={fechar}>
+            Equipe Base
+          </NavLink>
         </nav>
       </div>
     </header>

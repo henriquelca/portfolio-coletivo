@@ -10,6 +10,7 @@ describe('paraEmbed', () => {
     ['https://www.youtube.com/shorts/abc123', 'https://www.youtube.com/embed/abc123'],
     ['https://www.youtube.com/embed/abc123', 'https://www.youtube.com/embed/abc123'],
     ['https://vimeo.com/123456789', 'https://player.vimeo.com/video/123456789'],
+    ['https://vimeo.com/123456789/abcdef1234', 'https://player.vimeo.com/video/123456789?h=abcdef1234'],
     ['https://player.vimeo.com/video/123456789', 'https://player.vimeo.com/video/123456789'],
   ])('converte %s', (entrada, esperado) => {
     expect(paraEmbed(entrada)).toBe(esperado)

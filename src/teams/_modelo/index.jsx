@@ -24,7 +24,8 @@ export default function PaginaDaEquipe() {
       <h2>Vídeo</h2>
       <VideoReferencia
         titulo="Vídeo da equipe"
-        url="https://www.youtube.com/watch?v=ID_DO_VIDEO"
+        url=""
+        // Cole aqui o link do YouTube ou Vimeo, ex.: "https://www.youtube.com/watch?v=abc123"
         referencia="Fonte, inspiração, tema abordado ou prompt/roteiro usado para criar o vídeo."
       />
 
