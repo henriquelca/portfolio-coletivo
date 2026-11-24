@@ -36,3 +36,8 @@ export function paraEmbed(url) {
 
   return null
 }
+
+// Id do vídeo do YouTube a partir do link de embed, para mostrar a miniatura antes do player.
+export function idDoYoutube(embed) {
+  return embed?.match(/^https:\/\/www\.youtube(?:-nocookie)?\.com\/embed\/([\w-]+)/)?.[1] ?? null
+}
