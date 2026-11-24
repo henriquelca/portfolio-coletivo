@@ -1,0 +1,105 @@
+.topo {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--azul-escuro);
+  color: #fff;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 0.25);
+}
+
+.topo__barra {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.topo__marca {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.topo__selo {
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 0.6rem;
+  background: var(--azul);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.topo__nav {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.topo__nav a {
+  color: #d6e4ff;
+  text-decoration: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+}
+
+.topo__nav a:hover {
+  background: rgb(255 255 255 / 0.08);
+  color: #fff;
+}
+
+.topo__nav a.active {
+  background: var(--azul);
+  color: #fff;
+}
+
+.topo__contador {
+  display: inline-block;
+  min-width: 1.4rem;
+  margin-left: 0.25rem;
+  padding: 0 0.35rem;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.18);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.topo__menu-botao {
+  display: none;
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgb(255 255 255 / 0.4);
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+@media (max-width: 760px) {
+  .topo__barra {
+    flex-wrap: wrap;
+  }
+
+  .topo__menu-botao {
+    display: block;
+  }
+
+  .topo__nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 0.5rem;
+  }
+
+  .topo__nav--aberto {
+    display: flex;
+  }
+}
