@@ -48,9 +48,6 @@ export default function Header() {
           <NavLink to="/desafio" onClick={fechar}>
             O desafio
           </NavLink>
-          <NavLink to="/equipes/equipe-base" onClick={fechar}>
-            Equipe Base
-          </NavLink>
         </nav>
       </div>
     </header>
