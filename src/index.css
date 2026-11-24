@@ -1,0 +1,415 @@
+:root {
+  --azul-escuro: #0b2447;
+  --azul: #3178c6;
+  --azul-claro: #79b8ff;
+  --fundo: #f5f7fb;
+  --superficie: #ffffff;
+  --texto: #1d2433;
+  --texto-suave: #55607a;
+  --borda: #dde3ee;
+  --largura: 1120px;
+  --raio: 0.9rem;
+  --sombra: 0 6px 20px rgb(11 36 71 / 0.08);
+
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.55;
+  color: var(--texto);
+  background: var(--fundo);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.conteudo {
+  flex: 1;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  color: var(--azul-escuro);
+}
+
+a {
+  color: var(--azul);
+}
+
+code {
+  background: #e8eef8;
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.3rem;
+  font-size: 0.9em;
+}
+
+img,
+iframe {
+  max-width: 100%;
+}
+
+/* Blocos de layout compartilhados (Equipe Base). As equipes podem usar ou ter o próprio CSS. */
+.secao {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 2.5rem 1rem 0;
+}
+
+.secao__intro {
+  color: var(--texto-suave);
+  max-width: 70ch;
+}
+
+.botao {
+  display: inline-block;
+  padding: 0.75rem 1.3rem;
+  border-radius: 0.6rem;
+  background: var(--azul);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--azul);
+}
+
+.botao:hover {
+  background: #2563ad;
+}
+
+.botao--secundario {
+  background: transparent;
+  color: #fff;
+  border-color: rgb(255 255 255 / 0.6);
+}
+
+.botao--secundario:hover {
+  background: rgb(255 255 255 / 0.1);
+}
+
+.aviso {
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: var(--raio);
+  background: #eaf2ff;
+  border: 1px dashed var(--azul);
+  color: var(--azul-escuro);
+}
+
+.caixa {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 1.2rem 1.4rem;
+  box-shadow: var(--sombra);
+}
+
+.caixa h3 {
+  margin-top: 0;
+}
+
+.grade-simples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+/* Herói da Home */
+.heroi {
+  background: linear-gradient(135deg, var(--azul-escuro), #123a6e 60%, var(--azul));
+  color: #e6efff;
+}
+
+.heroi__interno {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 4.5rem 1rem 4rem;
+}
+
+.heroi h1 {
+  color: #fff;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin: 0.3rem 0 1rem;
+}
+
+.heroi__chamada {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+  color: var(--azul-claro);
+  font-weight: 700;
+}
+
+.heroi__texto {
+  max-width: 62ch;
+  font-size: 1.1rem;
+}
+
+.heroi__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.8rem;
+}
+
+/* Passos da Home */
+.passos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.passos li {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 1.3rem;
+  box-shadow: var(--sombra);
+}
+
+.passos h3 {
+  margin: 0.6rem 0 0.4rem;
+}
+
+.passos p {
+  margin: 0;
+  color: var(--texto-suave);
+}
+
+.passos__numero {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--azul);
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Cards das equipes */
+.grade-equipes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.1rem;
+}
+
+.card-equipe {
+  --cor-equipe: var(--azul);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-top: 5px solid var(--cor-equipe);
+  border-radius: var(--raio);
+  padding: 1.2rem 1.3rem;
+  color: var(--texto);
+  text-decoration: none;
+  box-shadow: var(--sombra);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card-equipe:hover,
+.card-equipe:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgb(11 36 71 / 0.15);
+}
+
+.card-equipe h3 {
+  margin: 0;
+}
+
+.card-equipe p {
+  margin: 0;
+  color: var(--texto-suave);
+}
+
+.card-equipe__numero {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cor-equipe);
+}
+
+.card-equipe__tema {
+  font-weight: 600;
+  color: var(--azul-escuro) !important;
+}
+
+.card-equipe__acao {
+  margin-top: auto;
+  padding-top: 0.6rem;
+  font-weight: 600;
+  color: var(--azul);
+}
+
+/* Página de equipe */
+.pagina-equipe {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 1.5rem 1rem 0;
+}
+
+.voltar {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.carregando {
+  color: var(--texto-suave);
+}
+
+/* Vídeo com referência */
+.video {
+  margin: 0;
+}
+
+.video iframe,
+.video__vazio {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: var(--raio);
+  background: #0b2447;
+}
+
+.video__vazio {
+  display: grid;
+  place-items: center;
+  color: #c9d6ee;
+  padding: 1rem;
+  text-align: center;
+}
+
+.video figcaption {
+  margin-top: 0.6rem;
+  color: var(--texto-suave);
+}
+
+/* Ficha técnica */
+.grade-fichas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.ficha {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 1.3rem;
+  box-shadow: var(--sombra);
+}
+
+.ficha h3 {
+  margin: 0.7rem 0 0.1rem;
+}
+
+.ficha p {
+  margin: 0.5rem 0 0;
+}
+
+.ficha__avatar {
+  display: grid;
+  place-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  background: var(--azul-escuro);
+  color: #fff;
+  font-weight: 700;
+}
+
+.ficha__papel {
+  margin-top: 0 !important;
+  color: var(--azul);
+  font-weight: 600;
+}
+
+.ficha__habilidades {
+  list-style: none;
+  padding: 0;
+  margin: 0.7rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.ficha__habilidades li {
+  background: #eaf2ff;
+  color: var(--azul-escuro);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.8rem;
+}
+
+.ficha__links {
+  display: flex;
+  gap: 0.8rem;
+}
+
+/* Linha do tempo do desafio */
+.linha-do-tempo {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.linha-do-tempo li {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 1rem;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-left: 4px solid var(--azul);
+  border-radius: var(--raio);
+  padding: 1rem 1.2rem;
+}
+
+.linha-do-tempo h3 {
+  margin: 0;
+}
+
+.linha-do-tempo p {
+  margin: 0.3rem 0 0;
+  color: var(--texto-suave);
+}
+
+.linha-do-tempo__tempo {
+  font-weight: 700;
+  color: var(--azul);
+}
+
+.nao-encontrada {
+  text-align: center;
+  padding-top: 5rem;
+}
+
+@media (max-width: 640px) {
+  .linha-do-tempo li {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+}

@@ -1,0 +1,36 @@
+// Aceita o link que a equipe copia do navegador (YouTube ou Vimeo) e devolve o link de embed.
+// Link que não é de YouTube nem Vimeo volta null, e a página mostra um aviso em vez de quebrar.
+export function paraEmbed(url) {
+  if (!url) return null
+
+  let endereco
+  try {
+    endereco = new URL(url)
+  } catch {
+    return null
+  }
+
+  const host = endereco.hostname.replace(/^www\.|^m\./, '')
+
+  if (host === 'youtu.be') {
+    const id = endereco.pathname.slice(1).split('/')[0]
+    return id ? `https://www.youtube.com/embed/${id}` : null
+  }
+
+  if (host === 'youtube.com' || host === 'youtube-nocookie.com') {
+    if (endereco.pathname.startsWith('/embed/')) return url
+    const id =
+      endereco.searchParams.get('v') ||
+      endereco.pathname.match(/^\/(?:shorts|live)\/([^/]+)/)?.[1]
+    return id ? `https://www.youtube.com/embed/${id}` : null
+  }
+
+  if (host === 'player.vimeo.com') return url
+
+  if (host === 'vimeo.com') {
+    const id = endereco.pathname.match(/^\/(\d+)/)?.[1]
+    return id ? `https://player.vimeo.com/video/${id}` : null
+  }
+
+  return null
+}
