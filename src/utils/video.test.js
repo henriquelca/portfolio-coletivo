@@ -1,5 +1,15 @@
 import { describe, expect, it } from 'vitest'
-import { paraEmbed } from './video.js'
+import { idDoYoutube, paraEmbed } from './video.js'
+
+describe('idDoYoutube', () => {
+  it('tira o id do embed do YouTube', () => {
+    expect(idDoYoutube('https://www.youtube.com/embed/KCrXgy8qtjM')).toBe('KCrXgy8qtjM')
+  })
+
+  it.each([null, 'https://player.vimeo.com/video/123', 'https://exemplo.com/embed/x'])('devolve null para %s', (embed) => {
+    expect(idDoYoutube(embed)).toBeNull()
+  })
+})
 
 describe('paraEmbed', () => {
   it.each([
