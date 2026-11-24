@@ -33,12 +33,15 @@ export function montarEquipes(metasPorCaminho, paginasPorCaminho) {
       tema: meta.tema,
       resumo: meta.resumo,
       cor: meta.cor,
+      carregar,
       Pagina: lazy(carregar),
     }))
     .sort(ordem)
 }
 
 export const equipes = montarEquipes(metas, paginas)
+
+export const equipesDeConteudo = equipes.filter((equipe) => equipe.slug !== 'equipe-base')
 
 export function buscarEquipe(slug) {
   return equipes.find((equipe) => equipe.slug === slug)

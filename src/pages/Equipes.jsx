@@ -1,6 +1,9 @@
 import GradeEquipes from '../components/GradeEquipes.jsx'
+import { useTitulo } from '../utils/useTitulo.js'
 
 export default function Equipes() {
+  useTitulo('Equipes')
+
   return (
     <section className="secao">
       <h1>Equipes</h1>

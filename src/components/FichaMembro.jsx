@@ -1,34 +1,46 @@
+import { linkExterno } from '../utils/links.js'
+
+function iniciais(nome) {
+  return nome
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((parte) => parte[0])
+    .join('')
+    .toUpperCase()
+}
+
 // Ficha técnica individual: nome, papel, habilidades, mini-bio e links (opcionais).
-export default function FichaMembro({ nome, papel, habilidades = [], bio, github, linkedin }) {
+export default function FichaMembro({ nome, papel, habilidades, bio, github, linkedin }) {
+  const nomeTexto = typeof nome === 'string' && nome.trim() ? nome.trim() : 'Integrante'
+  const listaHabilidades = Array.isArray(habilidades) ? habilidades : []
+  const linkGithub = linkExterno(github)
+  const linkLinkedin = linkExterno(linkedin)
+
   return (
     <article className="ficha">
       <div className="ficha__avatar" aria-hidden="true">
-        {nome
-          .split(' ')
-          .filter(Boolean)
-          .slice(0, 2)
-          .map((parte) => parte[0])
-          .join('')}
+        {iniciais(nomeTexto)}
       </div>
-      <h3>{nome}</h3>
-      <p className="ficha__papel">{papel}</p>
-      {habilidades.length > 0 && (
-        <ul className="ficha__habilidades">
-          {habilidades.map((habilidade) => (
+      <h3>{nomeTexto}</h3>
+      {papel && <p className="ficha__papel">{papel}</p>}
+      {listaHabilidades.length > 0 && (
+        <ul className="ficha__habilidades" aria-label="Habilidades">
+          {listaHabilidades.map((habilidade) => (
             <li key={habilidade}>{habilidade}</li>
           ))}
         </ul>
       )}
       {bio && <p>{bio}</p>}
-      {(github || linkedin) && (
+      {(linkGithub || linkLinkedin) && (
         <p className="ficha__links">
-          {github && (
-            <a href={github} target="_blank" rel="noreferrer">
+          {linkGithub && (
+            <a href={linkGithub} target="_blank" rel="noreferrer">
               GitHub
             </a>
           )}
-          {linkedin && (
-            <a href={linkedin} target="_blank" rel="noreferrer">
+          {linkLinkedin && (
+            <a href={linkLinkedin} target="_blank" rel="noreferrer">
               LinkedIn
             </a>
           )}

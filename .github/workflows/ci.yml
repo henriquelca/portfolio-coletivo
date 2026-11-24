@@ -5,6 +5,9 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,12 +17,15 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version-file: .nvmrc
           cache: npm
       - run: npm ci
       - name: Regra de ouro (cada equipe na sua pasta)
         if: github.event_name == 'pull_request'
-        run: node scripts/confere-pasta.mjs "${{ github.head_ref }}" "origin/${{ github.base_ref }}"
+        env:
+          HEAD_REF: ${{ github.head_ref }}
+          BASE_REF: ${{ github.base_ref }}
+        run: node scripts/confere-pasta.mjs "$HEAD_REF" "origin/$BASE_REF"
       - run: npm run confere
       - run: npm run lint
       - run: npm test

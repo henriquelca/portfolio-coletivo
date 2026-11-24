@@ -9,7 +9,11 @@
     "lint": "oxlint --deny-warnings",
     "test": "vitest run",
     "confere": "node scripts/confere-equipes.mjs",
+    "verifica": "npm run confere && npm run lint && npm test && npm run build",
     "preview": "vite preview"
+  },
+  "engines": {
+    "node": ">=22.12"
   },
   "dependencies": {
     "react": "^19.3.1",

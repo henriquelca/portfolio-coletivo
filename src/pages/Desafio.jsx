@@ -1,3 +1,5 @@
+import { useTitulo } from '../utils/useTitulo.js'
+
 const ETAPAS = [
   ['00 a 20 min', 'Setup', 'A Equipe Base cria o repositório, sobe o template e libera o acesso. As outras equipes escolhem tema, vídeo e textos.'],
   ['20 a 30 min', 'Clone e branch', 'Cada equipe clona o projeto e cria a sua branch feat/equipe-XX.'],
@@ -14,6 +16,8 @@ const OBRIGATORIOS = [
 ]
 
 export default function Desafio() {
+  useTitulo('O desafio')
+
   return (
     <section className="secao">
       <h1>O desafio</h1>

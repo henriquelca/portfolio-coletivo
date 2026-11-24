@@ -21,7 +21,7 @@ export default function App() {
     <>
       <VoltaAoTopo />
       <Header />
-      <main className="conteudo">
+      <main className="conteudo" id="conteudo" tabIndex={-1}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/equipes" element={<Equipes />} />

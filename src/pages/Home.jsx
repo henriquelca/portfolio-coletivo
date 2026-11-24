@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import GradeEquipes from '../components/GradeEquipes.jsx'
-import { equipes } from '../data/teamsConfig.js'
+import { useTitulo } from '../utils/useTitulo.js'
 
 const PASSOS = [
   {
@@ -18,6 +18,8 @@ const PASSOS = [
 ]
 
 export default function Home() {
+  useTitulo(null)
+
   return (
     <>
       <section className="heroi">
@@ -31,7 +33,7 @@ export default function Home() {
           </p>
           <div className="heroi__acoes">
             <Link to="/equipes" className="botao">
-              Ver as equipes ({equipes.length})
+              Ver as equipes
             </Link>
             <Link to="/desafio" className="botao botao--secundario">
               Como foi o desafio

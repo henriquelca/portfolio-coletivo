@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
+import { useTitulo } from '../utils/useTitulo.js'
 
 export default function NaoEncontrada() {
+  useTitulo('Página não encontrada')
+
   return (
     <section className="secao nao-encontrada">
       <h1>Página não encontrada</h1>
