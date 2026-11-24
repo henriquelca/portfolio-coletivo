@@ -45,9 +45,8 @@ export default function PaginaEquipeBase() {
         url="https://www.youtube.com/watch?v=AYvsXYkjJBs"
         referencia={
           <>
-            "PetCare Project - T242-26", apresentação do nosso sistema gravada pela equipe e publicada
-            por Thalys Silva no YouTube. O tema é o PetCare, o trabalho final da disciplina: cada
-            integrante explica a parte que fez, com a demonstração do sistema publicado.
+            "PetCare Project - T242-26", apresentação do PetCare para o professor, publicada por
+            Thalys Silva no YouTube. O tema é o nosso sistema, o trabalho final da disciplina.
           </>
         }
       />
@@ -100,18 +99,17 @@ export default function PaginaEquipeBase() {
       <p>
         No portfólio, usamos IA para gerar o esqueleto do projeto, propor a arquitetura de registro
         automático das equipes, escrever o CSS e revisar o código antes do merge. Toda sugestão passou
-        pelo build, pelo lint e pelos testes antes de entrar na main, e a equipe sabe explicar cada
-        parte.
+        pelo build, pelo lint e pelos testes antes de entrar na main.
       </p>
 
       <h2>A equipe</h2>
       <p>
-        Somos seis integrantes, os mesmos do PetCare. A dinâmica é a mesma do trabalho final: cada um
-        cuida de uma camada (front-end, back-end, banco, segurança, usabilidade e apresentação), e tudo
-        entra no código por Pull Request revisado.
+        Somos seis integrantes, os mesmos do PetCare. No trabalho final, cada um cuidou de uma parte:
+        front-end, back-end, banco de dados, segurança, usabilidade e apresentação.
       </p>
 
       <h2>Ficha técnica</h2>
+      <p>O papel de cada um é o do PetCare, como está na divisão do trabalho do relatório.</p>
       <div className="grade-fichas">
         {membros.map((membro) => (
           <FichaMembro key={membro.nome} {...membro} />
