@@ -1,22 +1,22 @@
 import logo from './assets/recircula-logo.png'
 import FichaMembro from './FichaMembro.jsx'
 import { funcionalidades, links, membros, tecnologias, usosDeIA, video } from './dados.js'
-import s from './Equipe04.module.css'
+import './equipe-04.css'
 
 export default function Equipe04() {
   return (
-    <div className={s.pagina}>
-      <div className={s.conteudo}>
-        <section className={s.abertura}>
+    <div className="equipe-04-pagina">
+      <div className="equipe-04-conteudo">
+        <section className="equipe-04-abertura">
           <div>
-            <p className={s.equipe}>Equipe 04</p>
+            <p className="equipe-04-equipe">Equipe 04</p>
             <h1>ReCircula</h1>
-            <p className={s.chamada}>
+            <p className="equipe-04-chamada">
               Um marketplace universitário que dá uma nova vida a materiais acadêmicos, por meio de vendas e
               doações entre estudantes.
             </p>
-            <div className={s.acoes}>
-              <a className={s.botao} href={links.site} target="_blank" rel="noreferrer">
+            <div className="equipe-04-acoes">
+              <a className="equipe-04-botao" href={links.site} target="_blank" rel="noreferrer">
                 Abrir o ReCircula
               </a>
               <a href={links.repositorio} target="_blank" rel="noreferrer">
@@ -24,12 +24,12 @@ export default function Equipe04() {
               </a>
             </div>
           </div>
-          <img className={s.logo} src={logo} alt="Logo do ReCircula" width="256" height="256" />
+          <img className="equipe-04-logo" src={logo} alt="Logo do ReCircula" width="256" height="256" />
         </section>
 
-        <section className={s.secao} aria-labelledby="eq04-video">
+        <section className="equipe-04-secao" aria-labelledby="eq04-video">
           <h2 id="eq04-video">Vídeo do projeto</h2>
-          <div className={s.video}>
+          <div className="equipe-04-video">
             <iframe
               src={`https://www.youtube-nocookie.com/embed/${video.id}?hl=pt-BR`}
               title={video.titulo}
@@ -39,7 +39,7 @@ export default function Equipe04() {
               allowFullScreen
             />
           </div>
-          <dl className={s.referencia}>
+          <dl className="equipe-04-referencia">
             <div>
               <dt>Fonte</dt>
               <dd>
@@ -66,9 +66,9 @@ export default function Equipe04() {
           </dl>
         </section>
 
-        <section className={s.secao} aria-labelledby="eq04-projeto">
+        <section className="equipe-04-secao" aria-labelledby="eq04-projeto">
           <h2 id="eq04-projeto">A página e o projeto</h2>
-          <div className={s.texto}>
+          <div className="equipe-04-texto">
             <p>
               O ReCircula conecta pessoas que procuram materiais acadêmicos a estudantes que desejam
               vender ou doar itens que já não usam. A proposta é facilitar o reaproveitamento,
@@ -86,14 +86,14 @@ export default function Equipe04() {
           </div>
 
           <h3>O que dá para fazer no ReCircula</h3>
-          <ul className={s.funcionalidades}>
+          <ul className="equipe-04-funcionalidades">
             {funcionalidades.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
 
           <h3>Tecnologias do projeto</h3>
-          <dl className={s.tecnologias}>
+          <dl className="equipe-04-tecnologias">
             {tecnologias.map(({ camada, itens }) => (
               <div key={camada}>
                 <dt>{camada}</dt>
@@ -103,7 +103,7 @@ export default function Equipe04() {
           </dl>
 
           <h3>Como usamos IA no projeto</h3>
-          <ul className={s.usos}>
+          <ul className="equipe-04-usos">
             {usosDeIA.map((uso) => (
               <li key={uso.titulo}>
                 <strong>{uso.titulo}</strong>
@@ -113,9 +113,9 @@ export default function Equipe04() {
           </ul>
         </section>
 
-        <section className={s.secao} aria-labelledby="eq04-equipe">
+        <section className="equipe-04-secao" aria-labelledby="eq04-equipe">
           <h2 id="eq04-equipe">Quem somos</h2>
-          <div className={s.texto}>
+          <div className="equipe-04-texto">
             <p>
               Somos a equipe do ReCircula, projeto desenvolvido na cadeira de Desenvolvimento de
               Plataformas Web, no 4º semestre de Ciência da Computação da Universidade de Fortaleza
@@ -126,7 +126,7 @@ export default function Equipe04() {
               separação: Samuel no front-end e no design, Henrique e Miguel no back-end.
             </p>
           </div>
-          <div className={s.membros}>
+          <div className="equipe-04-membros">
             {membros.map((membro) => (
               <FichaMembro key={membro.nome} membro={membro} />
             ))}
